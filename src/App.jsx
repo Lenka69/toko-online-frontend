@@ -326,7 +326,7 @@ const AddProduct = () => {
         </div>
 
         <button type="submit" style={{ width: '100%', padding: '1rem', fontSize: '1.1rem', marginTop: '1rem', borderRadius: '12px', backgroundColor: '#4f46e5', color: '#ffffff', border: 'none', fontWeight: '700', cursor: 'pointer', boxShadow: '0 4px 12px rgba(79, 70, 229, 0.3)' }}>
-          + Simpan Produk
+          Simpan Produk
         </button>
       </form>
     </div>
