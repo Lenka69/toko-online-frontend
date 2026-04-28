@@ -15,10 +15,10 @@ const ProductDetail = () => {
   if (!product) return <p style={{textAlign: 'center', marginTop: '3rem'}}>Memuat data produk...</p>;
 
   return (
-    <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', display: 'flex', gap: '3rem', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', flexWrap: 'wrap' }}>
-      <img src={product.imageUrl} alt={product.name} style={{ width: '400px', height: 'auto', borderRadius: '8px', objectFit: 'cover' }} />
-      <div style={{ flex: 1 }}>
-        <h1 style={{ color: '#000000', fontSize: '2.5rem', marginBottom: '1rem' }}>{product.name}</h1>
+    <div className="detail-layout">
+      <img src={product.imageUrl} alt={product.name} className="detail-img" />
+      <div className="detail-info">
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', lineHeight: '1.2' }}>{product.name}</h1>
         <h2 style={{ color: '#2563eb', fontSize: '2rem', marginBottom: '1.5rem' }}>Rp {product.price.toLocaleString('id-ID')}</h2>
         
         <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '8px', marginBottom: '2rem' }}>

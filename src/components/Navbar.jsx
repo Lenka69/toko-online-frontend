@@ -28,7 +28,7 @@ const NavbarContent = () => {
             
             {/* Tombol Tambah Barang HANYA muncul untuk Admin */}
             {role === 'admin' && (
-              <li><Link to="/admin/add" className="btn-nav-add">+ Tambah Barang</Link></li>
+              <li><Link to="/admin/add" className="btn-nav-add">Tambah Barang</Link></li>
             )}
             
             <li>
