@@ -10,7 +10,7 @@ const ProductList = () => {
 
   const fetchProducts = () => {
     setIsLoading(true);
-    axios.get('https://toko-online-backend-96jc.onrender.com')
+    axios.get('https://toko-online-backend-96jc.onrender.com/api/products')
       .then(res => {
         setProducts(res.data);
         setIsLoading(false);
@@ -28,7 +28,7 @@ const ProductList = () => {
   const handleDelete = async (id) => {
     if(window.confirm("Apakah Anda yakin ingin menghapus produk ini?")) {
       try {
-        await axios.delete(`http://localhost:5001/api/products/${id}`);
+        await axios.delete(`https://toko-online-backend-96jc.onrender.com/api/products/${id}`);
         toast.success('Berhasil dihapus!', { icon: '🗑️' });
         fetchProducts(); 
       } catch (error) {

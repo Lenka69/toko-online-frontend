@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://toko-online-backend-96jc.onrender.com${id}`)
+    axios.get(`https://toko-online-backend-96jc.onrender.com/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error(err));
   }, [id]);

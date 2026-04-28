@@ -136,7 +136,7 @@ const ProductList = () => {
 
   const fetchProducts = () => {
     setIsLoading(true);
-    axios.get('https://toko-online-backend-96jc.onrender.com')
+    axios.get('https://toko-online-backend-96jc.onrender.com/api/products')
       .then(res => {
         setProducts(res.data);
         setIsLoading(false);
@@ -223,7 +223,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://toko-online-backend-96jc.onrender.com/${id}`)
+    axios.get(`https://toko-online-backend-96jc.onrender.com/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error(err));
   }, [id]);
@@ -268,7 +268,7 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('https://toko-online-backend-96jc.onrender.com', formData, {
+      await axios.post('https://toko-online-backend-96jc.onrender.com/api/products', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('Produk berhasil ditambahkan!', { icon: '✅' });
@@ -341,7 +341,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://toko-online-backend-96jc.onrender.com', credentials);
+      const res = await axios.post('https://toko-online-backend-96jc.onrender.com/api/auth/login', credentials);
       
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', res.data.role); 

@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://toko-online-backend-96jc.onrender.com', credentials);
+      const res = await axios.post('https://toko-online-backend-96jc.onrender.com/api/auth/login', credentials);
       
       // Simpan data sesi ke local storage browser
       localStorage.setItem('token', res.data.token);

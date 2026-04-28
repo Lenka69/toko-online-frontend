@@ -20,7 +20,7 @@ const AddProduct = () => {
     e.preventDefault();
     try {
       // Mengirim data ke Backend
-      await axios.post('https://toko-online-backend-96jc.onrender.com', formData);
+      await axios.post('https://toko-online-backend-96jc.onrender.com/api/products', formData);
       toast.success('Produk berhasil ditambahkan!'); 
       navigate('/products'); 
     } catch (err) {
