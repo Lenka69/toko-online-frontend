@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams, Navigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import AutoLogout from './components/AutoLogout';
 
 // --- CSS Styles Internal (Menggabungkan App.css untuk Preview) ---
 const globalStyles = `
@@ -391,6 +392,10 @@ const Login = () => {
 export default function App() {
   return (
     <Router>
+      <AutoLogout />
+      <style>{globalStyles}</style>
+      <Navbar />
+      <Toaster position="top-center" />
       <style>{globalStyles}</style>
       <Navbar />
       <Toaster position="top-center" />
