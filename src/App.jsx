@@ -66,7 +66,7 @@ const NavbarContent = () => {
           <>
             <li><Link to="/">Beranda</Link></li>
             <li><Link to="/products">Katalog</Link></li>
-            {role === 'admin' && <li><Link to="/admin/add" className="btn-nav-add">+ Tambah Barang</Link></li>}
+            {role === 'admin' && <li><Link to="/admin/add" className="btn-nav-add">Tambah Produk</Link></li>}
             <li><button onClick={handleLogout} style={{ background: 'transparent', border: 'none', color: '#ef4444', fontWeight: '700', fontSize: '0.95rem', cursor: 'pointer' }}>Keluar</button></li>
           </>
         ) : (
