@@ -347,12 +347,15 @@ const Login = () => {
 export default function App() {
   return (
     <Router>
-      <Route path="/register" element={<Register />} />
       <AutoLogout />
       <Navbar />
       <Toaster position="top-center" />
       <div className="container">
         <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+
           <Route path="/login" element={<Login />} />
 
           <Route path="/" element={
