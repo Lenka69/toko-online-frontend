@@ -26,7 +26,7 @@ const AutoLogout = () => {
     const resetTimer = () => {
       if (timeoutId) clearTimeout(timeoutId);
       
-      timeoutId = setTimeout(handleLogout, 1000); 
+      timeoutId = setTimeout(handleLogout, 15 * 60 * 1000); 
     };
 
     if (location.pathname === '/login') return;
