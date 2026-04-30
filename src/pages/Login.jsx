@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false); 
-  const [isLoading, setIsLoading] = useState(false); // State baru untuk Loading
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Nyalakan loading saat tombol diklik
-    
-    // Toast informasi jika server Render sedang bangun
-    const loadingToast = toast.loading('Sedang menghubungi server, mohon tunggu beberapa detik...');
+    setIsLoading(true);
+    const loadingToast = toast.loading('Sedang menghubungi server...');
 
     try {
       const res = await axios.post('https://toko-online-backend-96jc.onrender.com/api/auth/login', credentials);
@@ -22,7 +20,7 @@ const Login = () => {
       localStorage.setItem('role', res.data.role); 
       localStorage.setItem('username', res.data.username);
       
-      toast.dismiss(loadingToast); // Matikan toast loading
+      toast.dismiss(loadingToast);
       toast.success(`Selamat datang, ${res.data.username}!`);
       
       if (res.data.role === 'admin') navigate('/admin/add');
@@ -31,7 +29,7 @@ const Login = () => {
       toast.dismiss(loadingToast);
       toast.error(err.response?.data?.message || 'Gagal login! Periksa username/password.');
     } finally {
-      setIsLoading(false); // Matikan loading baik sukses maupun gagal
+      setIsLoading(false);
     }
   };
 
@@ -55,27 +53,14 @@ const Login = () => {
             </div>
         </div>
 
-        {/* Tombol akan berubah abu-abu dan tidak bisa diklik saat loading */}
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          style={{ 
-            width: '100%', 
-            padding: '1rem', 
-            background: isLoading ? '#94a3b8' : '#4f46e5', 
-            color: 'white', 
-            border: 'none', 
-            borderRadius: '10px', 
-            fontWeight: 'bold', 
-            cursor: isLoading ? 'not-allowed' : 'pointer', 
-            fontSize: '1rem',
-            transition: 'all 0.3s'
-          }}
-        >
+        <button type="submit" disabled={isLoading} style={{ width: '100%', padding: '1rem', background: isLoading ? '#94a3b8' : '#4f46e5', color: 'white', border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: isLoading ? 'not-allowed' : 'pointer', fontSize: '1rem', transition: 'all 0.3s' }}>
             {isLoading ? 'Memproses...' : 'Login Sekarang'}
         </button>
       </form>
-      Belum Punya Akun?
+
+      <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.95rem' }}>
+        Belum punya akun? <Link to="/register" style={{ color: '#ec4899', fontWeight: '700', textDecoration: 'none' }}>Daftar di sini</Link>
+      </div>
     </div>
   );
 };
