@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true); // Nyalakan loading saat tombol diklik
     
-    // Toast informasi jika server Render sedang bangun (karena butuh waktu)
+    // Toast informasi jika server Render sedang bangun
     const loadingToast = toast.loading('Sedang menghubungi server, mohon tunggu beberapa detik...');
 
     try {
@@ -75,6 +75,7 @@ const Login = () => {
             {isLoading ? 'Memproses...' : 'Login Sekarang'}
         </button>
       </form>
+      Belum Punya Akun?
     </div>
   );
 };

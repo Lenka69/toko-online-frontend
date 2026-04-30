@@ -1,3 +1,4 @@
+import Register from './pages/Register';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams, Navigate } from 'react-router-dom';
@@ -346,6 +347,7 @@ const Login = () => {
 export default function App() {
   return (
     <Router>
+      <Route path="/register" element={<Register />} />
       <AutoLogout />
       <Navbar />
       <Toaster position="top-center" />
