@@ -396,9 +396,6 @@ export default function App() {
       <style>{globalStyles}</style>
       <Navbar />
       <Toaster position="top-center" />
-      <style>{globalStyles}</style>
-      <Navbar />
-      <Toaster position="top-center" />
       <div className="container">
         <Routes>
           <Route path="/login" element={<Login />} />
