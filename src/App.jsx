@@ -293,7 +293,7 @@ const AddProduct = () => {
         <input type="number" name="price" placeholder="Harga (Rp)" required onChange={handleChange} style={{width:'100%', padding:'1rem', marginBottom:'1rem', borderRadius:'10px', border:'1px solid #ccc'}} />
         <input type="url" name="imageUrl" placeholder="Link Gambar URL" required onChange={handleChange} style={{width:'100%', padding:'1rem', marginBottom:'1rem', borderRadius:'10px', border:'1px solid #ccc'}} />
         <textarea name="description" placeholder="Deskripsi" required onChange={handleChange} style={{width:'100%', padding:'1rem', marginBottom:'1rem', borderRadius:'10px', border:'1px solid #ccc'}} rows="4" />
-        <button type="submit" className="btn-primary" style={{width:'100%'}}>+ Simpan Produk</button>
+        <button type="submit" className="btn-primary" style={{width:'100%'}}>Simpan Produk</button>
       </form>
     </div>
   );
