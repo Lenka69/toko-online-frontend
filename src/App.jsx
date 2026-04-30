@@ -1,57 +1,11 @@
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams, Navigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import AutoLogout from './components/AutoLogout';
 
-// --- CSS Styles Internal (Menggabungkan App.css untuk Preview) ---
-const globalStyles = `
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --secondary: #ec4899;
-  --bg-color: #f1f5f9;
-  --surface: #ffffff;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --radius: 16px;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
-body { background-color: var(--bg-color); color: var(--text-main); -webkit-font-smoothing: antialiased; }
-.container { max-width: 1200px; margin: 0 auto; padding: 2rem; animation: fadeIn 0.8s ease-out; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
-.navbar-logo { font-weight: 800; font-size: 1.5rem; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; }
-.nav-links a:hover { color: var(--primary); }
-.btn-nav-add { background-color: var(--primary); color: white; padding: 0.5rem 1.2rem; border-radius: 50px; text-decoration: none; font-weight: 600;}
-.btn-nav-add:hover { background-color: var(--primary-hover); color: white; box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4); }
-.hero-section { text-align: center; padding: 6rem 2rem; background: linear-gradient(135deg, #eef2ff 0%, #fce7f3 100%); border-radius: var(--radius); margin-bottom: 3rem; }
-.hero-title { font-size: 3.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 1rem; }
-.hero-subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto; }
-.btn-primary { background: linear-gradient(135deg, var(--primary), #818cf8); color: white; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; display: inline-block;}
-.btn-danger { background-color: #fee2e2; color: #ef4444; padding: 0.5rem 1rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.product-card { background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.4s ease; display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.03); }
-.product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-.image-container { width: 100%; height: 240px; overflow: hidden; }
-.product-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-.product-card:hover img { transform: scale(1.08); }
-.card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-.card-content h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-.price-tag { color: var(--primary); font-weight: 800; font-size: 1.3rem; margin-bottom: 1.5rem; }
-.card-actions { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-.search-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-.search-bar { width: 100%; max-width: 350px; padding: 0.9rem 1.5rem; border: 2px solid transparent; background-color: var(--surface); border-radius: 50px; font-size: 1rem; color: var(--text-main); outline: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-.search-bar:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
-`;
-
 // --- Komponen-komponen ---
-
 // 1. ProtectedRoute
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const token = localStorage.getItem('token');
@@ -393,7 +347,6 @@ export default function App() {
   return (
     <Router>
       <AutoLogout />
-      <style>{globalStyles}</style>
       <Navbar />
       <Toaster position="top-center" />
       <div className="container">
