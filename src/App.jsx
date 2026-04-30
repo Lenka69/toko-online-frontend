@@ -353,8 +353,6 @@ export default function App() {
       <div className="container">
         <Routes>
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
 
           <Route path="/login" element={<Login />} />
 
