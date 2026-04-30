@@ -45,7 +45,7 @@ const Navbar = () => {
             <li><Link to="/" style={{ color: '#000000', fontWeight: '700' }}>Beranda</Link></li>
             <li><Link to="/products" style={{ color: '#000000', fontWeight: '700' }}>Katalog</Link></li>
             {role === 'admin' && (
-              <li><Link to="/admin/add" style={{ color: '#10e637', fontWeight: '900', fontSize: '0.95rem' }}className="btn-nav-add">Tambah Barang</Link></li>
+              <li><Link to="/admin/add" style={{ color: '#aeaaaa', fontWeight: '900', fontSize: '0.95rem' }}className="btn-nav-add">Tambah Barang</Link></li>
             )}
             <li>
               <button 
