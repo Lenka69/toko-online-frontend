@@ -58,6 +58,7 @@ const Login = () => {
         </button>
       </form>
 
+      {/* Tautan untuk pindah ke halaman pendaftaran (Register) */}
       <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.95rem' }}>
         Belum punya akun? <Link to="/register" style={{ color: '#ec4899', fontWeight: '700', textDecoration: 'none' }}>Daftar di sini</Link>
       </div>
